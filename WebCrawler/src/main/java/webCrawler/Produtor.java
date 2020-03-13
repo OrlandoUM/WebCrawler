@@ -1,25 +1,34 @@
 package webCrawler;
 
 public class Produtor implements Runnable{
-	private String name;
 	
-	public Produtor(String name) {
-		this.name = name;
-	}
+	public Produtor() { run(); }
 	
-	public String getName() {
-		return this.name;
-	}
-	
-	public void run() {
-		
-		System.out.println("Executando: " + this.name);
+	public synchronized void run() {
 		
 		try {
-			Thread.sleep(2000);
+			
+				while(SharedPoint.getCounter() == SharedPoint.getArray().length);
+				
+				if(SharedPoint.getJ()) wait();
+				SharedPoint.setJ(true);
+				
+				SharedPoint.setArray("Thread" + ProdutorSharedPoint.getIn());
+				System.out.println("Produziu Thread" + ProdutorSharedPoint.getIn());
+				
+				ProdutorSharedPoint.setIn(ProdutorSharedPoint.getIn() + 1) ;
+				
+				SharedPoint.setCounter(SharedPoint.getCounter() + 1);
+				SharedPoint.setJ(false);
+				notify();
+				
+			
+			
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
 	}
+
 }
