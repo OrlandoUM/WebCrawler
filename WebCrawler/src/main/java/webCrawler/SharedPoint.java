@@ -1,11 +1,11 @@
 package webCrawler;
 
-//import java.util.ArrayList;
+import java.util.ArrayList;
 
 public class SharedPoint {
 	
 	private static boolean j = false;
-	private static String[] array = new String [21];
+	private static ArrayList<Copa> array = new ArrayList<Copa>();
 	private static int counter = 0;
 	
 	private SharedPoint() {}
@@ -28,30 +28,24 @@ public class SharedPoint {
 		j = b;
 	}
 	
-	public static String[] getArray(){
+	public static ArrayList<Copa> getArray(){
 		
 		return array;
 	}
 	
-	public static String getArrayFromIndex(int i) {
-		String s = array[i];
-		String[] arrayCopy = new String[21];
-		
-		for(int j = 0; j < arrayCopy.length; j++) {
-			if(!(array[j].contentEquals(array[i]))) {
-				arrayCopy[j] = array[j];
-			}
-			else {
-				j++;
-			}
-		}
-		
-		return s;
+	public static void setArray(ArrayList<Copa> copa) {
+		array = copa;
 	}
 	
-	
-	public static void setArray(String array) {
-		SharedPoint.array[counter] = array;
+	public static void incrementArray(Copa c) {
+		array.add(c);
 	}
+	
+	public static Copa getArrayFromIndex(int i) {
+		Copa c = array.get(i);
+		//array.remove(i);
+		return c;
+	}
+	
 	
 }

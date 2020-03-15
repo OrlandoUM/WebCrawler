@@ -3,22 +3,22 @@ package webCrawler;
 public class Copa {
 	
 	public String sede;
-	public String data;
-	public String campeao;
+	public int ano;
+	public String campeao; 
 	public String vice;
 	public String terceiro;
 	public String quarto;
-	public int mediaPublico;
+	public int publicoTotal;
 	
 
 	public Copa() {
 		this.sede = "";
-		this.data = "";
+		this.ano = 0;
 		this.campeao = "";
 		this.vice = "";
 		this.terceiro = "";
 		this.quarto = "";
-		this.mediaPublico = 0;
+		this.publicoTotal = 0;
 	}
 	
 	
@@ -28,11 +28,11 @@ public class Copa {
 	public void setSede(String sede) {
 		this.sede = sede;
 	}
-	public String getData() {
-		return data;
+	public int getAno() {
+		return ano;
 	}
-	public void setData(String data) {
-		this.data = data;
+	public void setAno(int ano) {
+		this.ano = ano;
 	}
 	public String getCampeao() {
 		return campeao;
@@ -58,11 +58,11 @@ public class Copa {
 	public void setQuarto(String quarto) {
 		this.quarto = quarto;
 	}
-	public int getMediaPublico() {
-		return mediaPublico;
+	public float getPublicoTotal() {
+		return publicoTotal;
 	}
-	public void setMediaPublico(int mediaPublico) {
-		this.mediaPublico = mediaPublico;
+	public void setPublicoTotal(int publicoTotal) {
+		this.publicoTotal = publicoTotal;
 	}
 	
 	
